@@ -1,7 +1,7 @@
 defmodule AbirCounter do
   def start _type, [ token: token, app_id: app_id, password: password] do
     children = [
-      { MyXQL, hostname: "localhost", username: "abir_counter", password: password, database: "abir_counter"},
+      { MyXQL, hostname: "localhost", username: "abir_counter", password: password, database: "abir_counter", name: :myxql },
       { AbirCounter.Discord.SessionAgent, token: token, app_id: app_id },
       { AbirCounter.Discord, [] }
     ]
